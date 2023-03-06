@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{css/Application.css?version=51}" rel="stylesheet">
 </head>
 <body>
     <section>
-        <form action="#" th:action="@{/}" method="POST" th:object="${quiz}">
+        <form action="#" th:action="@{/api/quizzes/submit}" method="POST" th:object="${quiz}">
             <label for="name">QuizName</label>
             <input type="text" th:field="*{name}" id="name">
             <label for="difficulty">Difficulty</label>
@@ -15,6 +16,7 @@
                 <option value="MEDIUM">medium</option>
                 <option value="HARD">hard</option>
             </select>
+            <input type="submit">
         </form>
     </section>
 

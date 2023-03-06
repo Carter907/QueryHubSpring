@@ -20,9 +20,20 @@ public class QuizController {
     public List<Quiz> getAllQuizzes() {
         return repository.findAll();
     }
-
+    @GetMapping("/result/{id}")
+    public Quiz getQuizById(@PathVariable Long id) {
+        return repository.findById(id).orElseThrow();
+    }
     @PostMapping("/create")
     public void createQuiz(@RequestBody Quiz quiz) {
         repository.save(quiz);
     }
+
+    @RequestMapping(value = "/submit", method = RequestMethod.POST)
+    public String submitQuiz(@ModelAttribute Quiz quiz) {
+        repository.save(quiz);
+
+        return "redirect:api/quizzes/result/"+quiz.getId();
+    }
+
 }
