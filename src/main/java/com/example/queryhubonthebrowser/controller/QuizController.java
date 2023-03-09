@@ -29,11 +29,5 @@ public class QuizController {
         repository.save(quiz);
     }
 
-    @RequestMapping(value = "/submit", method = RequestMethod.POST)
-    public String submitQuiz(@ModelAttribute Quiz quiz) {
-        repository.save(quiz);
-
-        return "redirect:api/quizzes/result/"+quiz.getId();
-    }
 
 }
