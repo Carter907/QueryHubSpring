@@ -7,7 +7,7 @@
 </head>
 <body>
     <section>
-        <form action="#" th:action="@{/quizzes/form/submit}" method="POST" th:object="${quiz}">
+        <form action="#" th:action="@{quizzes/form/submit}" method="POST" th:object="${quiz}">
             <label for="name">QuizName</label>
             <input type="text" th:field="*{name}" id="name">
             <label for="difficulty">Difficulty</label>

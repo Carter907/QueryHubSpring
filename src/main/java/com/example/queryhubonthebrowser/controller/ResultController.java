@@ -26,4 +26,5 @@ public class ResultController {
         return "redirect:../../api/quizzes/result/"+quiz.getId();
     }
 
+
 }
