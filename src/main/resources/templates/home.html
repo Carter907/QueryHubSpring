@@ -11,10 +11,8 @@
             <label for="name">QuizName</label>
             <input type="text" th:field="*{name}" id="name">
             <label for="difficulty">Difficulty</label>
-            <select id="difficulty" name="difficulty" th:field="*{difficulty}">
-                <option value="EASY">easy</option>
-                <option value="MEDIUM">medium</option>
-                <option value="HARD">hard</option>
+            <select id="difficulty" name="difficulty" th:field="*{difficulty}" >
+                <option th:each="difficulty : ${difficulties}" th:value="${difficulty}" th:text="${difficulty}"></option>
             </select>
             <input type="submit">
         </form>
