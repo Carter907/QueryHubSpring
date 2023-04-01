@@ -25,9 +25,10 @@ class TestController(
         return "test"
     }
     @GetMapping fun testPage(model: Model): String =
-        if (service.findFirstId() == null)
-        { throw ResponseStatusException(HttpStatus.NOT_FOUND, "no questions in test") }
-        else { "redirect:/test/${service.findFirstId()}" }
+        when(service.findFirstId()) {
+            null -> throw ResponseStatusException(HttpStatus.NOT_FOUND, "no questions in test")
+            else -> "redirect:/test/${service.findFirstId()}"
+        }
 
 
 
