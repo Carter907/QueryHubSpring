@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{css/Application.css?version=51}" rel="stylesheet"/>
+</head>
+<body>
+<div id="question-submit-form">
+    <form action="#" th:action="@{/create}" method="POST" th:object="${question}">
+
+        <label for="text_field">Question Text</label>
+        <input id="text_field" type="text" th:field="*{text}" required="required">
+
+        <label for="answer_field">Answer Text</label>
+        <input id="answer_field" type="text" th:field="*{answer}" required="required">
+
+        <input type="submit">
+    </form>
+
+
+</div>
+<section style="padding: 30px">
+
+    <div id="questions-table">
+        <table>
+            <thead>
+            <tr>
+                <th th:text="question">
+                <th th:text="answer">
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="question : ${all}">
+                <td th:text="${question.text}"/>
+                <td th:text="${question.answer}"/>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <form action="#" th:action="@{/test}" th:method="GET">
+        <input type="submit" value="Take Quiz">
+    </form>
+</section>
+
+
+</body>
+</html>

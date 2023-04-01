@@ -1,0 +1,13 @@
+body {
+    padding: 30px;
+}
+table, th, tr, td {
+    border: black solid 2px;
+}
+td {
+    padding: 5px;
+}
+#questions-table {
+    margin-bottom: 30px;
+}
+
